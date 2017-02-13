@@ -16,7 +16,7 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 
 /**
- * SSImageView is complete one stop solution to manage and display bitmaps in android.
+ * FFImageView is fully featured, complete one stop solution to manage and display bitmaps in android.
  * <p>
  * Supports all gestures: PinchZoom, DoubleTap
  * Supports Image rotation with animation.
@@ -24,7 +24,7 @@ import android.view.View;
  * @author Shailesh Soliwal
  */
 
-public class SSImageView extends View implements GestureDetector.OnGestureListener,
+public class FFImageView extends View implements GestureDetector.OnGestureListener,
         GestureDetector.OnDoubleTapListener, ScaleGestureDetector.OnScaleGestureListener {
 
     private final static long ZOOM_ANIMATION_DURATION = 300L;
@@ -57,12 +57,12 @@ public class SSImageView extends View implements GestureDetector.OnGestureListen
     private BitmapDrawable mDrawable;
     float lastRotation = 0f;
 
-    public SSImageView(Context context) {
+    public FFImageView(Context context) {
         super(context);
         this.context = context;
     }
 
-    public SSImageView(Context context, AttributeSet attrs) {
+    public FFImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
     }
@@ -343,14 +343,14 @@ public class SSImageView extends View implements GestureDetector.OnGestureListen
      */
     private static class SnapRunnable implements Runnable {
         private static final long NEVER = -1L;
-        private final SSImageView mHeader;
+        private final FFImageView mHeader;
         private float mTranslateX;
         private float mTranslateY;
         private long mStartRunTime;
         private boolean mRunning;
         private boolean mStop;
 
-        public SnapRunnable(SSImageView header) {
+        public SnapRunnable(FFImageView header) {
             mStartRunTime = NEVER;
             mHeader = header;
         }
@@ -531,7 +531,7 @@ public class SSImageView extends View implements GestureDetector.OnGestureListen
      */
     private static class RotateRunnable implements Runnable {
         private static final long NEVER = -1L;
-        private final SSImageView mHeader;
+        private final FFImageView mHeader;
         private float mTargetRotation;
         private float mAppliedRotation;
         private float mVelocity;
@@ -539,7 +539,7 @@ public class SSImageView extends View implements GestureDetector.OnGestureListen
         private boolean mRunning;
         private boolean mStop;
 
-        public RotateRunnable(SSImageView header) {
+        public RotateRunnable(FFImageView header) {
             mHeader = header;
         }
 
@@ -610,7 +610,7 @@ public class SSImageView extends View implements GestureDetector.OnGestureListen
      * Runnable that animates an image scale operation.
      */
     private static class ScaleRunnable implements Runnable {
-        private final SSImageView mHeader;
+        private final FFImageView mHeader;
         private float mCenterX;
         private float mCenterY;
         private boolean mZoomingIn;
@@ -621,7 +621,7 @@ public class SSImageView extends View implements GestureDetector.OnGestureListen
         private boolean mRunning;
         private boolean mStop;
 
-        public ScaleRunnable(SSImageView header) {
+        public ScaleRunnable(FFImageView header) {
             mHeader = header;
         }
 
@@ -681,14 +681,14 @@ public class SSImageView extends View implements GestureDetector.OnGestureListen
     private static class TranslateRunnable implements Runnable {
         private static final float DECELERATION_RATE = 1000f;
         private static final long NEVER = -1L;
-        private final SSImageView mHeader;
+        private final FFImageView mHeader;
         private float mVelocityX;
         private float mVelocityY;
         private long mLastRunTime;
         private boolean mRunning;
         private boolean mStop;
 
-        public TranslateRunnable(SSImageView header) {
+        public TranslateRunnable(FFImageView header) {
             mLastRunTime = NEVER;
             mHeader = header;
         }

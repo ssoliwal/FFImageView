@@ -17,7 +17,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.ssoliwal.image.SSImageView;
+import com.ssoliwal.image.FFImageView;
 
 import java.io.IOException;
 
@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         requestStoragePermission();
 
-        SSImageView sv2 = (SSImageView) findViewById(R.id.image);
+        FFImageView sv2 = (FFImageView) findViewById(R.id.image);
         if (sv2 != null) {
             sv2.setBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.sample));
         }
@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
 
-        SSImageView sv2 = (SSImageView) findViewById(R.id.image);
+        FFImageView sv2 = (FFImageView) findViewById(R.id.image);
         if (sv2 != null) {
             sv2.clear();
         }
@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
             case R.id.rotate:
-                SSImageView sv2 = (SSImageView) findViewById(R.id.image);
+                FFImageView sv2 = (FFImageView) findViewById(R.id.image);
                 if (sv2 != null) {
                     sv2.rotateImage(90, true);
                     sv2.invalidate();
@@ -118,7 +118,7 @@ public class MainActivity extends Activity {
                     return;
                 }
 
-                final SSImageView sv2 = (SSImageView) findViewById(R.id.image);
+                final FFImageView sv2 = (FFImageView) findViewById(R.id.image);
                 if (sv2 != null) {
                     try {
                         byte[] bytes = Utils.readBytes(getApplicationContext(), selectedImageUri);
