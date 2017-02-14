@@ -67,10 +67,6 @@ public class FFImageView extends View implements GestureDetector.OnGestureListen
         this.context = context;
     }
 
-    public Bitmap getBitmap() {
-        return mBitmap;
-    }
-
     public void setBitmap(Bitmap bitmap) {
         mBitmap = bitmap;
         mDrawable = new BitmapDrawable(getResources(), mBitmap);
@@ -83,6 +79,15 @@ public class FFImageView extends View implements GestureDetector.OnGestureListen
         mRotateRunnable = new RotateRunnable(this);
         configureBounds(true);
         generateMatrix();
+    }
+
+    public Bitmap getBitmap() {
+        return mBitmap;
+    }
+
+    public void setBitmapFromResource(int drawableId) {
+        Resources res = getResources();
+        setBitmap(BitmapFactory.decodeResource(res, drawableId));
     }
 
     @Override
@@ -118,11 +123,6 @@ public class FFImageView extends View implements GestureDetector.OnGestureListen
         if (mDrawMatrix != null) {
             mDrawMatrix.mapRect(mTranslateRect);
         }
-    }
-
-    public void setBitmapFromResource(int drawableId) {
-        Resources res = getResources();
-        setBitmap(BitmapFactory.decodeResource(res, drawableId));
     }
 
     public void rotateImage(int angle, boolean animate) {
